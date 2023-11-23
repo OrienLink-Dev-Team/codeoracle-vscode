@@ -39,7 +39,6 @@ VSCode扩展(ctrl+shift+x)中执行`Install from VSIX...`命令，选择`codeora
 - 配置自动触发代码补全建议的时间延迟
 - 配置补全的最大tokens数量
 
-![插件配置截图]()
 
 ## 功能特性
 
@@ -51,4 +50,4 @@ VSCode扩展(ctrl+shift+x)中执行`Install from VSIX...`命令，选择`codeora
 
 当插件提供代码建议时，建议内容以灰色显示在编辑器光标位置，您可以按下Tab键来接受该建议，或者继续输入以忽略该建议。
 
-![代码建议截图](assets/readme/code_generation.png)
+![代码建议截图](https://github.com/orienlink/codeoracle-vscode/blob/master/assets/readme/code_generation.png)

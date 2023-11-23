@@ -1,6 +1,9 @@
 import axios, { AxiosInstance } from "axios";
-import { workspace } from "vscode";
-
+import { SnippetString, workspace } from "vscode";
+export interface CompletionResponse {
+  "completedCode": string | SnippetString;
+  "isCompleted": boolean;
+}
 export async function postCompletion(fimPrefixCode: string, type: string): Promise<CompletionResponse> {
   const serverAddress = "http://localhost:8899/codeinterpreter"; // 修改为你的请求地址
   let maxtokens = workspace.getConfiguration("CodeOracle").get("CompletionMaxTokens") as number;

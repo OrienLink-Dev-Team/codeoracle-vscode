@@ -11,7 +11,7 @@ export class CodeoRacleCompletionProvider implements InlineCompletionItemProvide
 		this.statusBar = statusBar;
 	}
 
-	public async provideInlineCompletionItems(document: TextDocument, position: vscode.Position, context: InlineCompletionContext, token: CancellationToken): ProviderResult<InlineCompletionItem[]> {
+	public async provideInlineCompletionItems(document: TextDocument, position: vscode.Position, context: InlineCompletionContext, token: CancellationToken): Promise<vscode.InlineCompletionItem[] | null | undefined> {
 		let autoTriggerEnabled = workspace.getConfiguration("CodeOracle").get("AutoTriggerCompletion") as boolean;
 		// Check if the completion is triggered automatically
 		if (context.triggerKind === InlineCompletionTriggerKind.Automatic) {

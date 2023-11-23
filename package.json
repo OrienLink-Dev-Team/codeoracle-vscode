@@ -3,7 +3,7 @@
   "displayName": "Code Llama Extension",
   "description": "Coding with Code Llama",
   "version": "0.0.1",
-  "icon": "assets/logo.png",
+  "icon": "assets/logo.jpg",
   "engines": {
     "vscode": "^1.68.1"
   },
@@ -11,10 +11,14 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:*" 
+    "onLanguage:*"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orienlink/codeoracle-vscode.git"
+  },
   "main": "./out/extension.js",
-"contributes": {
+  "contributes": {
     "configuration": {
       "title": "codeoracle",
       "properties": {
@@ -43,14 +47,6 @@
         }
       }
     },
-    "keybindings": [
-      {
-        "key": "alt+\\",
-        "mac": "alt+\\",
-        "command": "editor.action.inlineSuggest.trigger",
-        "when": "editorTextFocus"
-      }
-    ],
     "commands": [
       {
         "command": "codeoracle.auto_completion_enable",
