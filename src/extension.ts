@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { CodeoRacleCompletionProvider } from "./CodeOracleCompletionProvider";
+import { CodeOracleCompletionProvider } from "./CodeOracleCompletionProvider";
 
 export function activate(context: vscode.ExtensionContext) {
     // Create a status bar item
@@ -12,8 +12,8 @@ export function activate(context: vscode.ExtensionContext) {
         const configuration = vscode.workspace.getConfiguration();
         const target = vscode.ConfigurationTarget.Global;
         // Update the configuration setting for auto completion
-        configuration.update("CodeOracle.AutoTriggerCompletion", enabled, target, false).then(console.error);
-        var msg = enabled ? "Auto completion enabled" : "Auto completion disabled";
+        configuration.update("codeoracle.AutoTriggerCompletion", enabled, target, false).then(console.error);
+        var msg = enabled ? "启动成功" : "禁用成功";
         vscode.window.showInformationMessage(msg);
         statusBar.show();
     };
@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
     context.subscriptions.push(
         // Register the inline completion item provider
         vscode.languages.registerInlineCompletionItemProvider(
-            { pattern: "**" }, new CodeoRacleCompletionProvider(statusBar)
+            { pattern: "**" }, new CodeOracleCompletionProvider(statusBar)
         ),
         vscode.commands.registerCommand("codeoracle.auto_completion_enable", completionStatusCallback(true)),
         vscode.commands.registerCommand("codeoracle.auto_completion_disable", completionStatusCallback(false)),
@@ -29,7 +29,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     // Check the auto completion setting and execute the corresponding command
-    if (vscode.workspace.getConfiguration("CodeOracle").get("AutoTriggerCompletion")) {
+    if (vscode.workspace.getConfiguration("codeoracle").get("AutoTriggerCompletion")) {
         vscode.commands.executeCommand("codeoracle.auto_completion_enable");
     } else {
         vscode.commands.executeCommand("codeoracle.auto_completion_disable");

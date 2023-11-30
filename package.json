@@ -1,11 +1,11 @@
 {
   "name": "codeoracle-vscode",
-  "displayName": "Code Llama Extension",
+  "displayName": "Code Oracle",
   "description": "Coding with Code Llama",
   "version": "0.0.1",
   "icon": "assets/logo.jpg",
   "engines": {
-    "vscode": "^1.68.1"
+    "vscode": "^1.84.0"
   },
   "categories": [
     "Other"
