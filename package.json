@@ -1,0 +1,130 @@
+{
+  "name": "codeoracle-vscode",
+  "displayName": "Code Oracle",
+  "description": "Coding with Code Llama",
+  "version": "0.0.1",
+  "icon": "assets/logo.jpg",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orienlink/codeoracle-vscode.git"
+  },
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "codeoracle",
+      "properties": {
+        "codeoracle.ServerAddress": {
+          "description": "The address of the codeoracle server to connect to.",
+          "default": "http://localhost:8899/codeinterpreter",
+          "type": "string",
+          "order": 1
+        },
+        "codeoracle.AutoTriggerCompletion": {
+          "description": "Whether or not to automatically trigger completion when typing.",
+          "default": true,
+          "type": "boolean",
+          "order": 6
+        },
+        "codeoracle.AutoCompletionDelay": {
+          "description": "The delay in seconds before automatic code completion triggers.",
+          "type": "number",
+          "enum": [
+            1,
+            2,
+            3
+          ],
+          "default": 1,
+          "order": 7
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "codeoracle.auto_completion_enable",
+        "title": "%codeoracle.auto_completion_enable.title%",
+        "category": "codeoracle"
+      },
+      {
+        "command": "codeoracle.auto_completion_disable",
+        "title": "%codeoracle.auto_completion_disable.title%",
+        "category": "codeoracle"
+      },
+      {
+        "command": "codeoracle.generate_comment",
+        "title": "%codeoracle.generate_comment.title%",
+        "category": "codeoracle"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "codeoracle_context_submenu",
+        "label": "codeoracle"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "codeoracle_context_submenu",
+          "group": "navigation"
+        }
+      ],
+      "codeoracle_context_submenu": [
+        {
+          "command": "codeoracle.auto_completion_enable",
+          "group": "group1@1",
+          "when": "!config.codeoracle.AutoTriggerCompletion"
+        },
+        {
+          "command": "codeoracle.auto_completion_disable",
+          "group": "group1@2",
+          "when": "config.codeoracle.AutoTriggerCompletion"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codeoracle_sidebar",
+          "title": "codeoracle",
+          "icon": "assets/logo.png"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/flatbuffers": "^1.10.3",
+    "@types/mocha": "^10.0.3",
+    "@types/node": "18.x",
+    "@types/vscode": "^1.84.0",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "@vscode/test-electron": "^2.3.6",
+    "eslint": "^8.52.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.2.0",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "axios": "^1.6.1",
+    "flatbuffers": "^1.12.0",
+    "i": "^0.3.7"
+  }
+}
