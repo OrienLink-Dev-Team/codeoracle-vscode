@@ -13,7 +13,7 @@
 如果要从源码进行打包，需要安装 `node` v18 以上版本，并执行以下命令：
 
 ```zsh
-git clone "这里预留git仓库地址，方便以后用户自行下载源码"
+git clone "https://github.com/orienlink/codeoracle-vscode.git"
 cd codeoracle-vscode
 npm install
 npm exec vsce package
