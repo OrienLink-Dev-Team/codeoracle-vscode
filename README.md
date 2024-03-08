@@ -1,6 +1,7 @@
 # Code Oracle Extension Dev
 
 `codeoracle-vscode`项目是基于CodeLlama大模型开发的支持[Visual Studio Code](https://code.visualstudio.com/Download)的智能编码助手插件，支持python、java、c++/c、javascript、go等多种编程语言，为开发者提供代码生成、代码补全、注释生成等功能。
+插件的后端在仓库： https://github.com/orienlink/codeoracle-backend
 
 ## 环境要求
 
@@ -20,14 +21,6 @@ npm exec vsce package
 ```
 
 然后会得到一个名为`codeoracle-vscode-${VERSION_NAME}.vsix`的文件。
-
-##  模型服务
-
-
-### 下载模型
-
-
-### 加载模型
 
 
 ## 配置插件
